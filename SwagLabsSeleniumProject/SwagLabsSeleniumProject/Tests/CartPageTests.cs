@@ -1,10 +1,18 @@
-﻿using SwagLabsSeleniumProject.Pages;
+﻿using SwagLabsSeleniumProject.Driver;
+using SwagLabsSeleniumProject.Pages;
 using SwagLabsSeleniumProject.Tests.Common;
 
 namespace SwagLabsSeleniumProject.Tests;
 
+[TestFixture(DriverType.Firefox)]
+[TestFixture(DriverType.Chrome)]
 public class CartPageTests : TestBase
 {
+    public CartPageTests(DriverType driverType) : base(driverType)
+    {
+  
+    }
+
     [SetUp]
     public new void Setup()
     {

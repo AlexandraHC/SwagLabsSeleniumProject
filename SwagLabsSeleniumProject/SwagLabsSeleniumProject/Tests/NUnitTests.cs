@@ -1,10 +1,17 @@
 using SeleniumExtras.WaitHelpers;
+using SwagLabsSeleniumProject.Driver;
+using SwagLabsSeleniumProject.Tests.Common;
 
 namespace SwagLabsSeleniumProject.Tests;
 
-public class NUnitTests
+[TestFixture(DriverType.Firefox)]
+[TestFixture(DriverType.Chrome)]
+public class NUnitTests : TestBase
 {
-    private IWebDriver _driver;
+    public NUnitTests(DriverType driverType) : base(driverType)
+    {
+        
+    }
 
     // only once at the beggining of the testing session
     [OneTimeSetUp]
@@ -15,11 +22,9 @@ public class NUnitTests
 
     // before each test
     [SetUp]
-    public void Setup()
+    public new void Setup()
     {
-        _driver = new ChromeDriver();
-        _driver.Navigate().GoToUrl("https://www.saucedemo.com/");
-        _driver.Manage().Window.Maximize();
+        base.Setup();
     }
 
     [Test]
@@ -153,14 +158,6 @@ public class NUnitTests
 
         // Assert that error message is displayed
         Assert.IsTrue(errorMessage.Displayed, "Error message is displayed.");
-    }
-
-    // after each test
-    [TearDown]
-    public void TearDown()
-    {
-        _driver.Quit();
-        _driver.Dispose();
     }
 
     // once at the final of the testing session

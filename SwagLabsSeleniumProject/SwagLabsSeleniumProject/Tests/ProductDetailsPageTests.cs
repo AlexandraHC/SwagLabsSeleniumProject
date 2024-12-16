@@ -1,12 +1,19 @@
-﻿using SwagLabsSeleniumProject.Pages;
+﻿using SwagLabsSeleniumProject.Driver;
+using SwagLabsSeleniumProject.Pages;
 using SwagLabsSeleniumProject.Tests.Common;
 
 namespace SwagLabsSeleniumProject.Tests;
 
+[TestFixture(DriverType.Firefox)]
+[TestFixture(DriverType.Chrome)]
 public class ProductDetailsPageTests : TestBase
 {
+    public ProductDetailsPageTests(DriverType driverType) : base(driverType)
+    {
+        
+    }
     [SetUp]
-    public void Setup()
+    public new void Setup()
     {
         base.Setup();
         LoginPage login = new LoginPage(_driver);
