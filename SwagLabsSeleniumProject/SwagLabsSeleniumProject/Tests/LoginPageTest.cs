@@ -8,7 +8,7 @@ namespace SwagLabsSeleniumProject.Tests;
 
 [TestFixture(DriverType.Firefox)]
 [TestFixture(DriverType.Chrome)]
-
+[TestFixture(DriverType.Edge)]
 public class LoginPageTest : TestBase
 {
     public LoginPageTest(DriverType driverType) : base(driverType)

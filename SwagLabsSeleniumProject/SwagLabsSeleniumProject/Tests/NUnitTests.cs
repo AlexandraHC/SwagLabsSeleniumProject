@@ -6,6 +6,7 @@ namespace SwagLabsSeleniumProject.Tests;
 
 [TestFixture(DriverType.Firefox)]
 [TestFixture(DriverType.Chrome)]
+[TestFixture(DriverType.Edge)]
 public class NUnitTests : TestBase
 {
     public NUnitTests(DriverType driverType) : base(driverType)
